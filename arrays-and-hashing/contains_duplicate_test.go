@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func getInput() []int {
+func getInputForDuplicates() []int {
 	var num []int
 	for i := 0; i < 10000; i++ {
 		// get a random number
@@ -16,14 +16,14 @@ func getInput() []int {
 }
 
 func BenchmarkFindDuplicatesSlow(b *testing.B) {
-	num := getInput()
+	num := getInputForDuplicates()
 	for i := 0; i < b.N; i++ {
 		FindDuplicatesSlow(num)
 	}
 }
 
 func BenchmarkFindDuplciatesFast(b *testing.B) {
-	num := getInput()
+	num := getInputForDuplicates()
 	for i := 0; i < b.N; i++ {
 		FindDuplciatesFast(num)
 	}
